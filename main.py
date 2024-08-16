@@ -1,13 +1,18 @@
 import glob
 
-def main():
-    # olhar todos os arquivos que tem .txt em um diretório
-    # ter uma lista de paths + nome do arquivo + extensão
-    paths = glob.glob('data/*.txt')
+PATH_PREFIX = 'data/'
+FILE_PREFIX = '*.txt'
 
-    # iterar sobre a lista, e para cada iterável, exibir seu conteúdo e printar na tela
-    for file_path in paths:
+
+def main():
+    # busca um preixo, e gera uma lista de todos os arquivos .txt que encontrar no diretório
+    file_paths = glob.glob("".join([PATH_PREFIX, FILE_PREFIX]))
+
+    # itera sobre cada file_path, abre o arquivo e printa seus respectivos conteúdos
+    for file_path in file_paths:
         file = open(file_path, 'r')
         print(file.read())
 
-main()
+
+if __name__ == "__main__":
+    main()
